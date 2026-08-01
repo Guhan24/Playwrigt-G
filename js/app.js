@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initSmoothScroll();
   initActiveNavHighlight();
+  initEnrollModal();
+  initNewsletterForm();
 });
 
 /* ── Navbar Scroll Effect & Mobile Menu ── */
@@ -294,4 +296,72 @@ function initScrollReveal() {
       observer.observe(el);
     });
   });
+}
+
+/* ── Enrollment Modal Logic ── */
+window.openEnrollModal = function(planName) {
+  const modal = document.getElementById('enrollModal');
+  const planInput = document.getElementById('modal-plan');
+  if (modal) {
+    if (planInput && planName) {
+      planInput.value = planName;
+    }
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+};
+
+window.closeEnrollModal = function() {
+  const modal = document.getElementById('enrollModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};
+
+function initEnrollModal() {
+  const modal = document.getElementById('enrollModal');
+  const form = document.getElementById('enroll-form');
+  const alertBox = document.getElementById('enroll-alert');
+
+  // Close modal when clicking outside the content box
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeEnrollModal();
+      }
+    });
+  }
+
+  // Handle Form Submission
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = form.querySelector('[name="name"]').value;
+      const plan = form.querySelector('[name="plan"]').value;
+
+      if (alertBox) {
+        alertBox.style.display = 'block';
+        alertBox.innerHTML = `<i class="fas fa-check-circle"></i> Awesome, <strong>${name}</strong>! Your enrollment request for the <strong>${plan}</strong> has been received. Check your email shortly.`;
+      }
+      form.reset();
+    });
+  }
+}
+
+/* ── Newsletter Form Handler ── */
+function initNewsletterForm() {
+  const form = document.getElementById('newsletter-form');
+  const alertBox = document.getElementById('newsletter-alert');
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (alertBox) {
+        alertBox.style.display = 'block';
+        alertBox.innerHTML = `<i class="fas fa-check-circle"></i> Successfully subscribed to Daily Playwright Tips!`;
+      }
+      form.reset();
+    });
+  }
 }
