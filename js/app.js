@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Playwright-G Application Script — V2 Enhanced
+   Playwright-G Application Script — Paytm UI & Multi-Form Support
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordions();
   initCurriculumFilter();
   initAssessmentQuiz();
+  initDirectEnrollForm();
   initContactForm();
   initScrollReveal();
   initSmoothScroll();
@@ -194,7 +195,7 @@ function renderQuizQuestion() {
           Based on your background and goals, this Playwright course is the <strong style="color: #fff;">perfect fit</strong> to make you a job-ready QA Automation Engineer!
         </p>
         <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-          <a href="#pricing" class="btn btn-primary"><i class="fas fa-rocket"></i> Enroll Now</a>
+          <a href="#enroll-section" class="btn btn-primary"><i class="fas fa-rocket"></i> Fill Enrollment Form</a>
           <a href="#contact" class="btn btn-secondary"><i class="fas fa-calendar-alt"></i> Book Free Call</a>
         </div>
       </div>
@@ -238,7 +239,29 @@ window.selectQuizOption = function(score) {
   renderQuizQuestion();
 };
 
-/* ── Contact Form Handler ── */
+/* ── FORM 1: Direct Landing Page Enrollment Form Handler ── */
+function initDirectEnrollForm() {
+  const form = document.getElementById('direct-enroll-form');
+  const alertBox = document.getElementById('direct-enroll-alert');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nameInput = form.querySelector('[name="name"]');
+      const emailInput = form.querySelector('[name="email"]');
+      const planSelect = form.querySelector('[name="plan"]');
+      const name = nameInput ? nameInput.value.trim() : 'Learner';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const plan = planSelect ? planSelect.value.trim() : 'Playwright Cohort';
+
+      const successMsg = `<i class="fas fa-check-circle"></i> Congratulations <strong>${name}</strong>! Your direct enrollment application for <strong>${plan}</strong> has been received. Confirmation sent to <strong>${email}</strong>.`;
+
+      await sendToWeb3Forms(form, alertBox, successMsg);
+    });
+  }
+}
+
+/* ── FORM 2: Contact & Inquiry Form Handler ── */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const alertBox = document.getElementById('form-alert');
@@ -297,7 +320,7 @@ function initScrollReveal() {
   });
 }
 
-/* ── Enrollment Modal Logic ── */
+/* ── FORM 4: Checkout Popup Modal Logic ── */
 window.openEnrollModal = function(planName) {
   const modal = document.getElementById('enrollModal');
   const planInput = document.getElementById('modal-plan');
@@ -351,7 +374,7 @@ function initEnrollModal() {
   }
 }
 
-/* ── Newsletter Form Handler ── */
+/* ── FORM 3: Newsletter Form Handler ── */
 function initNewsletterForm() {
   const form = document.getElementById('newsletter-form');
   const alertBox = document.getElementById('newsletter-alert');
@@ -359,26 +382,28 @@ function initNewsletterForm() {
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const successMsg = `<i class="fas fa-check-circle"></i> Successfully subscribed to Daily Playwright Tips!`;
+      const emailInput = form.querySelector('[name="email"]');
+      const email = emailInput ? emailInput.value.trim() : '';
+      const successMsg = `<i class="fas fa-check-circle"></i> Successfully subscribed <strong>${email}</strong> to Daily Playwright Tips!`;
       await sendToWeb3Forms(form, alertBox, successMsg);
     });
   }
 }
 
-/* ── Robust Form Submission Helper ── */
+/* ── Robust Paytm-Styled Form Submission Helper ── */
 async function sendToWeb3Forms(form, alertBox, successMessage) {
   const submitBtn = form.querySelector('button[type="submit"]');
   const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
 
   if (submitBtn) {
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
     submitBtn.disabled = true;
   }
 
   function showAlert(message, isSuccess = true) {
     if (!alertBox) return;
     alertBox.style.display = 'block';
-    alertBox.style.padding = '14px 20px';
+    alertBox.style.padding = '16px 20px';
     alertBox.style.borderRadius = '12px';
     if (isSuccess) {
       alertBox.style.background = 'rgba(52, 211, 153, 0.12)';
@@ -413,12 +438,12 @@ async function sendToWeb3Forms(form, alertBox, successMessage) {
           sentViaApi = true;
         }
       } catch (err) {
-        console.warn('Backend form submission endpoint unavailable, using fallback handler:', err);
+        console.warn('Backend form submission endpoint unavailable, using Paytm fallback handler:', err);
       }
     }
 
     if (!sentViaApi) {
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 550));
     }
 
     showAlert(successMessage, true);

@@ -1296,13 +1296,23 @@ h1, h2, h3, h4, h5, h6 {
   gap: 18px;
 }
 
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent-cyan);
+}
+
 .form-group input,
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 16px 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-color);
+  padding: 15px 18px;
+  background: rgba(0, 32, 82, 0.55);
+  border: 1px solid rgba(0, 186, 242, 0.28);
   border-radius: var(--radius-sm);
   color: #fff;
   font-family: var(--font-body);
@@ -1319,9 +1329,9 @@ h1, h2, h3, h4, h5, h6 {
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: var(--accent-cyan);
-  background: rgba(0, 229, 255, 0.04);
-  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+  border-color: #00baf2;
+  background: rgba(0, 186, 242, 0.08);
+  box-shadow: 0 0 0 3.5px rgba(0, 186, 242, 0.25);
 }
 
 .form-group select option {
