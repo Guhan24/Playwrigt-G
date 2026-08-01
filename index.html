@@ -46,9 +46,14 @@
         <a href="#" onclick="openEnrollModal('Live Cohort'); return false;" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Enroll Now</a>
       </div>
 
-      <button class="hamburger" aria-label="Toggle Menu">
-        <i class="fas fa-bars"></i>
-      </button>
+      <div class="nav-controls" style="display: flex; align-items: center; gap: 15px;">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -466,7 +471,7 @@
     <div class="container">
       <div class="instructor-grid">
         <div class="instructor-img-wrapper">
-          <img src="../../brain/b1dbb5fd-c453-4a66-b239-5549cc7ad20f/instructor_profile_1785592143714.jpg" alt="Playwright-G Expert QA Instructor">
+          <img src="images/instructor_profile.jpg" alt="Playwright-G Expert QA Instructor">
         </div>
 
         <div class="instructor-info">
@@ -689,8 +694,8 @@
           <div id="form-alert" style="display: none; margin-bottom: 20px; padding: 14px;"></div>
 
           <form id="contact-form" class="contact-form">
-            <!-- Web3Forms integration point (Replace value with key) -->
-            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+            <!-- Replace the value below with your actual email address -->
+            <input type="hidden" name="_to" value="YOUR_EMAIL_ADDRESS_HERE">
 
             <div class="form-group">
               <input type="text" name="name" placeholder="Your Full Name" required>
@@ -742,8 +747,8 @@
       <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem;">Subscribe to our daily mail and master automation one tip at a time.</p>
       
       <form id="newsletter-form" style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px; position: relative;">
-        <!-- Web3Forms integration point (Replace value with key) -->
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+        <!-- Replace the value below with your actual email address -->
+        <input type="hidden" name="_to" value="YOUR_EMAIL_ADDRESS_HERE">
         <input type="hidden" name="subject" value="New Daily Newsletter Subscription">
         
         <input type="email" name="email" placeholder="Enter your email address" required style="flex-grow: 1; padding: 14px 20px; border-radius: var(--radius-full); background: var(--bg-card); border: 1px solid var(--border-color); color: #fff; outline: none; font-size: 0.95rem;">
@@ -814,7 +819,8 @@
       <div id="enroll-alert" style="display: none; margin-bottom: 20px; padding: 14px; border-radius: 8px; background: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.3); color: var(--accent-green); font-size: 0.9rem;"></div>
 
       <form id="enroll-form" class="contact-form">
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+        <!-- Replace the value below with your actual email address -->
+        <input type="hidden" name="_to" value="YOUR_EMAIL_ADDRESS_HERE">
         <input type="hidden" name="subject" value="New Enrollment Request">
         
         <div class="form-group">

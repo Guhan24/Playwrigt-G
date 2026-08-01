@@ -6,34 +6,119 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
 
 :root {
-  /* ── Color Palette ── */
-  --bg-dark: #06081a;
-  --bg-surface: #0c0e24;
-  --bg-card: rgba(14, 17, 40, 0.75);
-  --bg-card-hover: rgba(22, 28, 60, 0.9);
-  --bg-alt-section: rgba(10, 14, 36, 0.6);
-  --border-color: rgba(99, 102, 241, 0.15);
-  --border-glow: rgba(0, 242, 254, 0.35);
+  /* ── Color Palette (Paytm Theme) ── */
+  --bg-dark: #001538;
+  --bg-surface: #002052;
+  --bg-card: rgba(0, 41, 112, 0.75);
+  --bg-card-hover: rgba(0, 50, 130, 0.9);
+  --bg-alt-section: rgba(0, 30, 80, 0.6);
+  --border-color: rgba(0, 186, 242, 0.2);
+  --border-glow: rgba(0, 186, 242, 0.35);
 
-  --text-main: #e8ecf4;
-  --text-muted: #8b95b0;
-  --text-dim: #576175;
+  --text-main: #ffffff;
+  --text-muted: #b3d4ff;
+  --text-dim: #7aa7e6;
 
-  --accent-cyan: #00e5ff;
-  --accent-blue: #4facfe;
-  --accent-indigo: #6366f1;
-  --accent-green: #34d399;
-  --accent-amber: #fbbf24;
-  --accent-purple: #a78bfa;
-  --accent-pink: #f472b6;
+  --accent-cyan: #00baf2;
+  --accent-blue: #0088cc;
+  --accent-indigo: #002970;
+  --accent-green: #00d97e;
+  --accent-amber: #ffb800;
+  --accent-purple: #9b51e0;
+  --accent-pink: #ff3366;
 
-  --gradient-primary: linear-gradient(135deg, #00e5ff 0%, #6366f1 100%);
-  --gradient-warm: linear-gradient(135deg, #f472b6 0%, #6366f1 50%, #00e5ff 100%);
-  --gradient-glow: linear-gradient(135deg, rgba(0, 229, 255, 0.12), rgba(99, 102, 241, 0.12));
-  --gradient-accent: linear-gradient(90deg, #00e5ff, #34d399);
-  --gradient-hero: linear-gradient(160deg, #0a0c24 0%, #0e1030 40%, #120f35 100%);
+  --gradient-primary: linear-gradient(135deg, #00baf2 0%, #0088cc 100%);
+  --gradient-warm: linear-gradient(135deg, #00baf2 0%, #00d97e 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(0, 186, 242, 0.12), rgba(0, 136, 204, 0.12));
+  --gradient-accent: linear-gradient(90deg, #00baf2, #00d97e);
+  --gradient-hero: linear-gradient(160deg, #001538 0%, #001a4d 40%, #002970 100%);
+}
 
-  /* ── Typography ── */
+/* ── Light Mode Overrides ── */
+body.light-mode {
+  --bg-dark: #f5f7fa;
+  --bg-surface: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-hover: #ffffff;
+  --bg-alt-section: rgba(230, 238, 248, 0.6);
+  --border-color: rgba(0, 41, 112, 0.1);
+  --border-glow: rgba(0, 186, 242, 0.15);
+
+  --text-main: #001538;
+  --text-muted: #4a6a96;
+  --text-dim: #7aa7e6;
+
+  --gradient-hero: linear-gradient(160deg, #f5f7fa 0%, #e6eef8 40%, #d4e4f7 100%);
+}
+
+body.light-mode .hero::before {
+  background-image: 
+    linear-gradient(rgba(0, 41, 112, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 41, 112, 0.05) 1px, transparent 1px);
+}
+
+body.light-mode h1, body.light-mode h2, body.light-mode h3, body.light-mode h4, body.light-mode h5, body.light-mode h6 {
+  color: #001538;
+}
+
+body.light-mode .glass-card {
+  box-shadow: 0 8px 30px rgba(0, 41, 112, 0.08);
+}
+
+body.light-mode .btn-secondary {
+  background: rgba(0, 186, 242, 0.05);
+  border: 1px solid rgba(0, 186, 242, 0.3);
+  color: #002970;
+}
+
+body.light-mode .btn-secondary:hover {
+  background: rgba(0, 186, 242, 0.1);
+}
+
+body.light-mode .pricing-card.popular {
+  background: #ffffff;
+}
+
+body.light-mode .price-amount {
+  color: #002970;
+}
+
+body.light-mode .form-group input,
+body.light-mode .form-group textarea,
+body.light-mode .form-group select {
+  background: #ffffff;
+  color: #001538;
+  border: 1px solid rgba(0, 41, 112, 0.2);
+}
+
+/* ── Theme Toggle Button ── */
+.theme-toggle-btn {
+  background: rgba(0, 186, 242, 0.15);
+  border: 1px solid rgba(0, 186, 242, 0.3);
+  color: var(--accent-cyan);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 1.1rem;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(0, 186, 242, 0.25);
+  transform: scale(1.1) rotate(15deg);
+}
+
+body.light-mode .theme-toggle-btn {
+  color: #ffb800;
+  background: rgba(255, 184, 0, 0.15);
+  border-color: rgba(255, 184, 0, 0.3);
+}
+
+/* ── Typography ── */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-code: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
