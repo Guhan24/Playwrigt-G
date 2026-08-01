@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playwright-G — Playwright Automation Testing with QA (Job-Ready Course)</title>
+  <meta name="description" content="Master Playwright Automation Testing from scratch. Become a job-ready QA Automation Engineer with real-world projects, POM, CI/CD, and interview preparation.">
+  <meta name="keywords" content="Playwright, QA Automation, Software Testing, TypeScript, JavaScript, Framework Design, CI/CD, Page Object Model, Interview Prep">
+
+  <!-- OpenGraph SEO -->
+  <meta property="og:title" content="Playwright-G — Complete Playwright Automation Course">
+  <meta property="og:description" content="From Manual Testing to Senior QA Automation Engineer. Enterprise projects, framework design & mock interviews.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">🎭</div>
+        <span>Playwright<span class="gradient-text">-G</span></span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#features">Features</a>
+        <a href="#video-preview">Video Preview</a>
+        <a href="#quiz">Assessment</a>
+        <a href="#instructor">Instructor</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="btn btn-secondary" style="padding: 8px 20px; font-size: 0.9rem;">Contact Us</a>
+        <a href="#pricing" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Enroll Now</a>
+      </div>
+
+      <button class="hamburger" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="pulse"></span>
+            <span>Complete Job-Ready QA Automation Track 2026</span>
+          </div>
+
+          <h1 class="hero-title">
+            Playwright Automation Testing with QA — <span class="gradient-text">Complete Course</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Master modern web automation testing from the ground up using <strong>JavaScript & TypeScript</strong>. Learn enterprise framework design, API testing, CI/CD pipelines, and crack top QA interviews with confidence.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#curriculum" class="btn btn-primary">
+              <i class="fas fa-book-open"></i> Explore 35+ Modules
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-calendar-check"></i> Book Free 1-on-1 Call
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>4.9 ⭐</h3>
+              <p>Student Rating (500+ Reviews)</p>
+            </div>
+            <div class="stat-item">
+              <h3>100%</h3>
+              <p>Job Placement Support</p>
+            </div>
+            <div class="stat-item">
+              <h3>35+</h3>
+              <p>Hands-on Modules</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Code Execution Preview Window -->
+        <div class="hero-code-box">
+          <div class="code-window">
+            <div class="window-header">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="window-title">tests/e2e/e-commerce.spec.ts</span>
+            </div>
+            <div class="code-content">
+              <span class="code-keyword">import</span> { test, expect } <span class="code-keyword">from</span> <span class="code-string">'@playwright/test'</span>;<br><br>
+              <span class="code-comment">// Playwright-G Enterprise Test Suite</span><br>
+              test(<span class="code-string">'Automate Checkout & Verify Network API'</span>, <span class="code-keyword">async</span> ({ page }) => {<br>
+              &nbsp;&nbsp;<span class="code-keyword">await</span> page.<span class="code-function">goto</span>(<span class="code-string">'https://app.playwright-g.com'</span>);<br>
+              &nbsp;&nbsp;<span class="code-keyword">await</span> page.<span class="code-function">locator</span>(<span class="code-string">'[data-testid="login-btn"]'</span>).<span class="code-function">click</span>();<br><br>
+              &nbsp;&nbsp;<span class="code-comment">// Smart Auto-Wait & Assertion</span><br>
+              &nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-function">expect</span>(page.<span class="code-function">getByRole</span>(<span class="code-string">'heading'</span>, { name: <span class="code-string">'Dashboard'</span> })).<span class="code-function">toBeVisible</span>();<br>
+              &nbsp;&nbsp;console.<span class="code-function">log</span>(<span class="code-string">'✅ Automation Test Passed!'</span>);<br>
+              });
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metrics Floating Banner -->
+      <div class="metrics-bar">
+        <div class="metric-box">
+          <div class="metric-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="metric-text">
+            <h4>Hands-on Coding</h4>
+            <p>Real enterprise repos & projects</p>
+          </div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-icon"><i class="fas fa-sitemap"></i></div>
+          <div class="metric-text">
+            <h4>POM Architecture</h4>
+            <p>Hybrid framework design</p>
+          </div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-icon"><i class="fas fa-tasks"></i></div>
+          <div class="metric-text">
+            <h4>Mock Interviews</h4>
+            <p>1-on-1 feedback & resume building</p>
+          </div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-icon"><i class="fas fa-infinity"></i></div>
+          <div class="metric-text">
+            <h4>Lifetime Access</h4>
+            <p>All future Playwright updates</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Curriculum Section -->
+  <section id="curriculum" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Curriculum Breakdown</span>
+        <h2>Master 35+ <span class="gradient-text">Job-Ready Topics</span></h2>
+        <p>A structured step-by-step learning path taking you from testing fundamentals to senior QA automation framework engineering.</p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="curriculum-filters">
+        <button class="filter-btn active" data-filter="all">All Modules</button>
+        <button class="filter-btn" data-filter="basics">Basics & JS/TS</button>
+        <button class="filter-btn" data-filter="playwright-core">Playwright Core</button>
+        <button class="filter-btn" data-filter="advanced">Advanced & API</button>
+        <button class="filter-btn" data-filter="framework">POM & CI/CD</button>
+        <button class="filter-btn" data-filter="career">Career Track</button>
+      </div>
+
+      <!-- Modules Accordion -->
+      <div class="modules-grid">
+
+        <!-- Module 1 -->
+        <div class="module-card active" data-category="basics">
+          <div class="module-header">
+            <div class="module-title-area">
+              <div class="module-number">01</div>
+              <div>
+                <h3>Software Testing & STLC Fundamentals</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Software Testing Fundamentals, SDLC & STLC Concepts, Manual Testing Essentials</p>
+              </div>
+            </div>
+            <div class="module-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="module-content">
+            <div class="topic-list">
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Software Testing Life Cycle (STLC) & SDLC Models</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Defect Life Cycle & Test Strategy Documentation</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Manual Testing Techniques & Test Case Writing</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Agile & Scrum Methodology in Automation Teams</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="module-card" data-category="basics">
+          <div class="module-header">
+            <div class="module-title-area">
+              <div class="module-number">02</div>
+              <div>
+                <h3>JavaScript & TypeScript for Automation</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">JavaScript Essentials, TypeScript Fundamentals, Async/Await, ES6+</p>
+              </div>
+            </div>
+            <div class="module-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="module-content">
+            <div class="topic-list">
+              <div class="topic-item"><i class="fas fa-check-circle"></i> JS Variables, Data Types & Arrow Functions</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Promises, Async / Await Execution Model</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> TypeScript Interfaces, Generics & Type Safety</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Object-Oriented Programming (OOP) for Test Automation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="module-card" data-category="playwright-core">
+          <div class="module-header">
+            <div class="module-title-area">
+              <div class="module-number">03</div>
+              <div>
+                <h3>Playwright Installation, Architecture & Locators</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Setup, Architecture, Element Locators, Auto Wait, Assertions</p>
+              </div>
+            </div>
+            <div class="module-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="module-content">
+            <div class="topic-list">
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Playwright Architecture vs Selenium / Cypress</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Project Initialization & configuration file (playwright.config.ts)</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Locators: CSS, XPath, getByRole, getByTestId, getByText</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Smart Auto-Waiting & Explicit Assertions</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="module-card" data-category="playwright-core">
+          <div class="module-header">
+            <div class="module-title-area">
+              <div class="module-number">04</div>
+              <div>
+                <h3>Web UI Interactions & Multi-Tab Handling</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Alerts, Frames, Windows, Tabs, Dropdowns, Uploads, Mouse & Keyboard</p>
+              </div>
+            </div>
+            <div class="module-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="module-content">
+            <div class="topic-list">
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Handling JavaScript Alerts, Confirmations & Prompts</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Switching iFrames, Nested Frames & Shadow DOM</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Browser Context, Multi-Tab & Multi-Window Execution</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> File Upload / Download, Drag & Drop, Mouse Actions</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="module-card" data-category="advanced">
+          <div class="module-header">
+            <div class="module-title-area">
+              <div class="module-number">05</div>
+              <div>
+                <h3>API Testing & Network Interception</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">REST API Testing, Request Interception, Mocking Responses</p>
+              </div>
+            </div>
+            <div class="module-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="module-content">
+            <div class="topic-list">
+              <div class="topic-item"><i class="fas fa-check-circle"></i> API Automation with Playwright APIRequestContext</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> GET, POST, PUT, DELETE Request Validation</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Network Interception & Route Mocking</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Hybrid UI + API Automated Workflows</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 6 -->
+        <div class="module-card" data-category="framework">
+          <div class="module-header">
+            <div class="module-title-area">
+              <div class="module-number">06</div>
+              <div>
+                <h3>Page Object Model (POM) & Framework Design</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">POM Pattern, Data-Driven Testing, Hybrid Architecture</p>
+              </div>
+            </div>
+            <div class="module-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="module-content">
+            <div class="topic-list">
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Building Page Object Model from Scratch</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Data-Driven Testing using JSON / CSV / Excel</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Custom Fixtures & Page Extension</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Environment Configuration (Dev, QA, Staging, Prod)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 7 -->
+        <div class="module-card" data-category="framework">
+          <div class="module-header">
+            <div class="module-title-area">
+              <div class="module-number">07</div>
+              <div>
+                <h3>Reporting, CI/CD & Jenkins Integration</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Allure Reports, HTML Reports, Trace Viewer, Git & Jenkins</p>
+              </div>
+            </div>
+            <div class="module-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="module-content">
+            <div class="topic-list">
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Playwright HTML & Allure Detailed Reporting</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Debugging with Playwright Inspector & Trace Viewer</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Git Branching & GitHub Pull Request Workflows</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Continuous Integration with Jenkins & GitHub Actions</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 8 -->
+        <div class="module-card" data-category="career">
+          <div class="module-header">
+            <div class="module-title-area">
+              <div class="module-number">08</div>
+              <div>
+                <h3>Career Track: Resume, Placement & Mock Interviews</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Real-World Project, Resume Building, Mock Interviews, Placement Prep</p>
+              </div>
+            </div>
+            <div class="module-toggle"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="module-content">
+            <div class="topic-list">
+              <div class="topic-item"><i class="fas fa-check-circle"></i> Real-World Enterprise Automation Project</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> ATS-Friendly QA Resume & LinkedIn Optimization</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> 100+ Commonly Asked QA Interview Questions & Answers</div>
+              <div class="topic-item"><i class="fas fa-check-circle"></i> 1-on-1 Mock Interview & Live Coding Exercises</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Should Enroll -->
+  <section id="enroll" class="section-padding" style="background: rgba(18, 22, 46, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Target Audience</span>
+        <h2>Who Should <span class="gradient-text">Enroll?</span></h2>
+        <p>This course is specifically structured to cater to learners at all stages of their software testing journey.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+          <h3>Manual Testers</h3>
+          <p>Looking to transition smoothly into high-paying automation roles without getting overwhelmed by complex coding.</p>
+        </div>
+
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
+          <h3>Automation QA Engineers</h3>
+          <p>Selenium or Cypress users looking to upskill to Playwright — the modern industry standard for web automation.</p>
+        </div>
+
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
+          <h3>Fresh Graduates & Beginners</h3>
+          <p>Students and freshers starting a software quality assurance career with zero prior experience required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Features & Outcomes -->
+  <section id="features" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Why Choose Playwright-G</span>
+        <h2>Built for <span class="gradient-text">Job Readiness</span></h2>
+        <p>Everything you need to gain true corporate-level competence and land your target role.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Enterprise Framework Design</h3>
+          <p>Build robust hybrid frameworks with Page Object Model, custom fixtures, and environment management.</p>
+        </div>
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-network-wired"></i></div>
+          <h3>API & Network Interception</h3>
+          <p>Automate REST APIs and intercept network requests to perform fast, reliable integration testing.</p>
+        </div>
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-sync"></i></div>
+          <h3>CI/CD Pipeline Integration</h3>
+          <p>Integrate tests into Jenkins & GitHub Actions to run cross-browser parallel tests automatically.</p>
+        </div>
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-bug"></i></div>
+          <h3>Trace Viewer & Debugging</h3>
+          <p>Master Playwright Trace Viewer, video recording, screenshots, and Allure HTML reporting.</p>
+        </div>
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+          <h3>Mock Interviews & Resume</h3>
+          <p>Get personalized resume reviews and practice live technical QA interview questions with real feedback.</p>
+        </div>
+        <div class="glass-card feature-card">
+          <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+          <h3>Certificate of Completion</h3>
+          <p>Earn an industry-recognized certificate validating your Playwright Automation credentials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Preview Section -->
+  <section id="video-preview" class="section-padding" style="background: rgba(18, 22, 46, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Sample Lesson Preview</span>
+        <h2>Watch Playwright in <span class="gradient-text">Action</span></h2>
+        <p>Get a glimpse of our practical, hands-on teaching methodology.</p>
+      </div>
+
+      <div class="video-container">
+        <!-- YouTube Demo Embed -->
+        <iframe src="https://www.youtube-nocookie.com/embed/Xz6lhEzgI5I?autoplay=0&rel=0" title="Playwright Automation Preview Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive QA Assessment Quiz -->
+  <section id="quiz" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Interactive Eligibility Check</span>
+        <h2>Is QA Automation Right for <span class="gradient-text">You?</span></h2>
+        <p>Answer 3 quick questions to check your readiness for the Playwright Automation Track.</p>
+      </div>
+
+      <div class="quiz-card" id="quiz-container">
+        <!-- Loaded dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Your Instructor -->
+  <section id="instructor" class="section-padding" style="background: rgba(18, 22, 46, 0.4);">
+    <div class="container">
+      <div class="instructor-grid">
+        <div class="instructor-img-wrapper">
+          <img src="../../brain/b1dbb5fd-c453-4a66-b239-5549cc7ad20f/instructor_profile_1785592143714.jpg" alt="Playwright-G Expert QA Instructor">
+        </div>
+
+        <div class="instructor-info">
+          <span class="tag" style="margin-bottom: 12px;">Your Mentor</span>
+          <h3>Meet Your <span class="gradient-text">Lead Instructor</span></h3>
+          <span class="instructor-role">Senior QA Automation Architect & Industry Mentor</span>
+
+          <div class="instructor-bio">
+            <p>
+              With extensive experience in Software Quality Assurance and Test Automation, our instructor has trained hundreds of aspiring QA professionals and working engineers to build successful careers in automation testing.
+            </p>
+            <p>
+              Specializing in <strong>Playwright, JavaScript, TypeScript, API Testing, Test Framework Design, and CI/CD integration</strong>, the training approach focuses on solving real business testing challenges rather than just basic syntax.
+            </p>
+            <p>
+              Through project-based learning and 1-on-1 interview prep, you'll develop the practical confidence required to excel in modern tech teams.
+            </p>
+          </div>
+
+          <div class="skill-tags">
+            <span class="skill-tag">🎭 Playwright</span>
+            <span class="skill-tag">⚡ JavaScript / TypeScript</span>
+            <span class="skill-tag">🏗️ Page Object Model</span>
+            <span class="skill-tag">📡 REST API Testing</span>
+            <span class="skill-tag">⚙️ Jenkins & CI/CD</span>
+            <span class="skill-tag">📊 Allure Reporting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Student Success Stories</span>
+        <h2>What Our Students <span class="gradient-text">Say</span></h2>
+        <p>Real stories from manual testers and QA engineers who transformed their careers.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="glass-card testimonial-card">
+          <div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "I transitioned from manual testing to automation after completing this course. The real-world project and interview preparation gave me the confidence to secure my first Automation Tester role."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">RS</div>
+            <div class="user-info">
+              <h4>Rahul S.</h4>
+              <p>Automation Test Engineer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card">
+          <div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "The course is well-structured and easy to follow. Every concept is explained with practical examples, making Playwright simple even for beginners."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">PK</div>
+            <div class="user-info">
+              <h4>Priya K.</h4>
+              <p>QA Engineer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card">
+          <div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "The framework design section was outstanding. I now understand how enterprise automation projects are built and maintained."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">MA</div>
+            <div class="user-info">
+              <h4>Mohammed A.</h4>
+              <p>SDET Professional</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card">
+          <div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "I especially appreciated the interview-focused sessions. The mock interviews and coding exercises helped me crack multiple QA Automation interviews."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">SR</div>
+            <div class="user-info">
+              <h4>Sneha R.</h4>
+              <p>Senior Test Analyst</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card">
+          <div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "The real-world project experience was invaluable. It felt like working on an actual corporate application rather than just completing simple examples."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">AP</div>
+            <div class="user-info">
+              <h4>Arjun P.</h4>
+              <p>Software Test Engineer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card">
+          <div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "One of the best Playwright courses available. The instructor explains complex concepts in a clear and practical way, making learning enjoyable and effective."
+            </p>
+          </div>
+          <div class="testimonial-user">
+            <div class="user-avatar">NT</div>
+            <div class="user-info">
+              <h4>Neha T.</h4>
+              <p>QA Automation Lead</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans -->
+  <section id="pricing" class="section-padding" style="background: rgba(18, 22, 46, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Transparent Pricing</span>
+        <h2>Choose Your <span class="gradient-text">Learning Path</span></h2>
+        <p>Invest in your career with flexible self-paced or live cohort options.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Self Paced -->
+        <div class="glass-card pricing-card">
+          <div class="price-header">
+            <h3>Self-Paced Track</h3>
+            <div class="price-amount">$149 <span>/ lifetime</span></div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">For self-motivated learners</p>
+          </div>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> Lifetime Access to All 35+ Modules</li>
+            <li><i class="fas fa-check"></i> Downloadable Source Code & Repos</li>
+            <li><i class="fas fa-check"></i> Real-World Project Implementation</li>
+            <li><i class="fas fa-check"></i> Allure & HTML Reporting Guides</li>
+            <li><i class="fas fa-check"></i> Certificate of Completion</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Get Started</a>
+        </div>
+
+        <!-- Live Cohort (Popular) -->
+        <div class="glass-card pricing-card popular">
+          <span class="popular-badge">Most Popular</span>
+          <div class="price-header">
+            <h3>Live Cohort + Placement</h3>
+            <div class="price-amount">$349 <span>/ full course</span></div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Job-ready track with live mentorship</p>
+          </div>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> Everything in Self-Paced Track</li>
+            <li><i class="fas fa-check"></i> <strong>Live Weekend Classes & Doubt Sessions</strong></li>
+            <li><i class="fas fa-check"></i> <strong>1-on-1 Mock Interview Sessions</strong></li>
+            <li><i class="fas fa-check"></i> <strong>ATS Resume & LinkedIn Review</strong></li>
+            <li><i class="fas fa-check"></i> <strong>Direct Job Referral Support</strong></li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Enroll in Live Cohort</a>
+        </div>
+
+        <!-- Enterprise / Team -->
+        <div class="glass-card pricing-card">
+          <div class="price-header">
+            <h3>1-on-1 Mentorship</h3>
+            <div class="price-amount">$599 <span>/ customized</span></div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Dedicated personal training</p>
+          </div>
+          <ul class="price-features">
+            <li><i class="fas fa-check"></i> Dedicated 1-on-1 Private Sessions</li>
+            <li><i class="fas fa-check"></i> Custom Framework Building for your Org</li>
+            <li><i class="fas fa-check"></i> Priority Direct WhatsApp/Slack Access</li>
+            <li><i class="fas fa-check"></i> Custom API & CI/CD Pipeline Setup</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Request 1-on-1 Mentorship</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Free Booking -->
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Get In Touch</span>
+        <h2>Have Questions? <span class="gradient-text">Talk to Us</span></h2>
+        <p>Book a free 15-minute discovery call or send us a message.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="glass-card">
+          <h3 style="margin-bottom: 20px; font-size: 1.4rem;">Send a Message</h3>
+          
+          <div id="form-alert" style="display: none; margin-bottom: 20px; padding: 14px;"></div>
+
+          <form id="contact-form" class="contact-form">
+            <!-- Web3Forms integration point (Replace value with key) -->
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Full Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email Address" required>
+            </div>
+            <div class="form-group">
+              <select name="plan">
+                <option value="General Inquiry">Interested Plan: Select an option</option>
+                <option value="Self-Paced">Self-Paced Track ($149)</option>
+                <option value="Live Cohort">Live Cohort + Placement ($349)</option>
+                <option value="1-on-1 Mentorship">1-on-1 Mentorship ($599)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea name="message" rows="4" placeholder="Your Message or Career Questions..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Booking Widget Container -->
+        <div class="booking-box">
+          <i class="fas fa-calendar-alt"></i>
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Book a Free 1-on-1 Call</h3>
+          <p style="color: var(--text-muted); margin-bottom: 24px; max-width: 320px;">
+            Schedule a 15-minute consultation to discuss your QA career roadmap and ask any questions.
+          </p>
+
+          <!-- Embedded Cal.com / Calendly Widget Container -->
+          <a href="https://cal.com" target="_blank" class="btn btn-primary">
+            <i class="fas fa-external-link-alt"></i> Schedule on Cal.com
+          </a>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 14px;">
+            Powered by Cal.com (Free Integration)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">🎭</div>
+            <span>Playwright<span class="gradient-text">-G</span></span>
+          </a>
+          <p>
+            Master Playwright Automation Testing and transition into a job-ready QA Automation Engineer with real-world enterprise frameworks.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#curriculum">Curriculum</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#video-preview">Video Preview</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Learners</h4>
+          <ul>
+            <li><a href="#quiz">Eligibility Quiz</a></li>
+            <li><a href="#instructor">Instructor Bio</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#pricing">Pricing Plans</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+            <li><a href="#"><i class="fab fa-telegram"></i> Telegram Community</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Playwright-G. All Rights Reserved. Built with ❤️ for QA Engineers worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
