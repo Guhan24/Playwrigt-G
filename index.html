@@ -46,9 +46,6 @@
       </div>
 
       <div class="nav-controls" style="display: flex; align-items: center; gap: 15px;">
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
-          <i class="fas fa-sun"></i>
-        </button>
         <button class="hamburger" aria-label="Toggle Menu">
           <i class="fas fa-bars"></i>
         </button>
@@ -566,7 +563,9 @@
 
         <form id="direct-enroll-form" class="contact-form">
           <input type="hidden" name="_to" value="YOUR_EMAIL_ADDRESS_HERE">
-          <input type="hidden" name="subject" value="Direct Landing Page Enrollment Request">
+          <input type="hidden" name="subject" value="New Direct Course Enrollment Application">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
             <div class="form-group">
@@ -628,6 +627,9 @@
 
           <form id="contact-form" class="contact-form">
             <input type="hidden" name="_to" value="YOUR_EMAIL_ADDRESS_HERE">
+            <input type="hidden" name="subject" value="New Contact Inquiry Message">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
 
             <div class="form-group">
               <label class="form-label">Full Name *</label>
@@ -689,6 +691,8 @@
       <form id="newsletter-form" style="max-width: 580px; margin: 0 auto; position: relative;">
         <input type="hidden" name="_to" value="YOUR_EMAIL_ADDRESS_HERE">
         <input type="hidden" name="subject" value="New Daily Newsletter Subscription">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         
         <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
           <input type="email" name="email" placeholder="Enter your email address..." required style="flex-grow: 1; min-width: 280px; padding: 16px 24px; border-radius: var(--radius-full); background: rgba(0, 32, 82, 0.8); border: 1px solid rgba(0, 186, 242, 0.3); color: #fff; outline: none; font-size: 0.95rem;">
@@ -764,7 +768,9 @@
 
       <form id="enroll-form" class="contact-form">
         <input type="hidden" name="_to" value="YOUR_EMAIL_ADDRESS_HERE">
-        <input type="hidden" name="subject" value="New Enrollment Request">
+        <input type="hidden" name="subject" value="New Checkout Modal Enrollment Request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         
         <div class="form-group">
           <label class="form-label">Selected Track</label>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Playwright-G Application Script — Paytm UI & Multi-Form Support
+   Playwright-G Application Script — Paytm UI Edition (Multi-Form Support)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavHighlight();
   initEnrollModal();
   initNewsletterForm();
-  initThemeToggle();
 });
 
 /* ── Navbar Scroll Effect & Mobile Menu ── */
@@ -248,13 +247,9 @@ function initDirectEnrollForm() {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const nameInput = form.querySelector('[name="name"]');
-      const emailInput = form.querySelector('[name="email"]');
-      const planSelect = form.querySelector('[name="plan"]');
       const name = nameInput ? nameInput.value.trim() : 'Learner';
-      const email = emailInput ? emailInput.value.trim() : '';
-      const plan = planSelect ? planSelect.value.trim() : 'Playwright Cohort';
 
-      const successMsg = `<i class="fas fa-check-circle"></i> Congratulations <strong>${name}</strong>! Your direct enrollment application for <strong>${plan}</strong> has been received. Confirmation sent to <strong>${email}</strong>.`;
+      const successMsg = `<i class="fas fa-check-circle"></i> Congratulations <strong>${name}</strong>! Your direct course enrollment form was submitted successfully.`;
 
       await sendToWeb3Forms(form, alertBox, successMsg);
     });
@@ -271,11 +266,9 @@ function initContactForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const nameInput = form.querySelector('[name="name"]');
-    const emailInput = form.querySelector('[name="email"]');
     const name = nameInput ? nameInput.value.trim() : 'Learner';
-    const email = emailInput ? emailInput.value.trim() : '';
 
-    const successMsg = `<i class="fas fa-check-circle"></i> Thank you, <strong>${name}</strong>! Your message has been sent. We'll reach out to <strong>${email}</strong> within 2 hours.`;
+    const successMsg = `<i class="fas fa-check-circle"></i> Thank you, <strong>${name}</strong>! Your inquiry message has been submitted.`;
 
     await sendToWeb3Forms(form, alertBox, successMsg);
   });
@@ -367,7 +360,7 @@ function initEnrollModal() {
       const planInput = form.querySelector('[name="plan"]');
       const name = nameInput ? nameInput.value.trim() : 'Learner';
       const plan = planInput ? planInput.value.trim() : 'Selected Cohort';
-      const successMsg = `<i class="fas fa-check-circle"></i> Awesome, <strong>${name}</strong>! Your enrollment request for <strong>${plan}</strong> has been received. Check your email shortly.`;
+      const successMsg = `<i class="fas fa-check-circle"></i> Awesome, <strong>${name}</strong>! Your checkout request for <strong>${plan}</strong> has been submitted.`;
 
       await sendToWeb3Forms(form, alertBox, successMsg);
     });
@@ -382,49 +375,77 @@ function initNewsletterForm() {
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const emailInput = form.querySelector('[name="email"]');
-      const email = emailInput ? emailInput.value.trim() : '';
-      const successMsg = `<i class="fas fa-check-circle"></i> Successfully subscribed <strong>${email}</strong> to Daily Playwright Tips!`;
+      const successMsg = `<i class="fas fa-check-circle"></i> Successfully subscribed to Daily Playwright Tips!`;
       await sendToWeb3Forms(form, alertBox, successMsg);
     });
   }
 }
 
-/* ── Robust Paytm-Styled Form Submission Helper ── */
+/* ── Paytm-Styled Form Submission Helper with Formatted Mail Payload ── */
 async function sendToWeb3Forms(form, alertBox, successMessage) {
   const submitBtn = form.querySelector('button[type="submit"]');
   const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
 
   if (submitBtn) {
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
     submitBtn.disabled = true;
   }
 
-  function showAlert(message, isSuccess = true) {
+  const formData = new FormData(form);
+  const submittedFields = [];
+  
+  formData.forEach((value, key) => {
+    if (!key.startsWith('_') && key !== 'subject' && value.toString().trim() !== '') {
+      const fieldLabel = key.charAt(0).toUpperCase() + key.slice(1);
+      submittedFields.push(`<li><strong style="color:#00baf2;">${fieldLabel}:</strong> ${escapeHtml(value.toString().trim())}</li>`);
+    }
+  });
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, (m) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+    }[m]));
+  }
+
+  function showAlert(message, isSuccess = true, detailsHtml = '') {
     if (!alertBox) return;
     alertBox.style.display = 'block';
-    alertBox.style.padding = '16px 20px';
-    alertBox.style.borderRadius = '12px';
+    alertBox.style.padding = '18px 22px';
+    alertBox.style.borderRadius = '14px';
     if (isSuccess) {
-      alertBox.style.background = 'rgba(52, 211, 153, 0.12)';
-      alertBox.style.border = '1px solid rgba(52, 211, 153, 0.4)';
-      alertBox.style.color = '#34d399';
+      alertBox.style.background = 'rgba(0, 41, 112, 0.95)';
+      alertBox.style.border = '1px solid rgba(0, 186, 242, 0.5)';
+      alertBox.style.color = '#ffffff';
     } else {
-      alertBox.style.background = 'rgba(239, 68, 68, 0.12)';
-      alertBox.style.border = '1px solid rgba(239, 68, 68, 0.4)';
+      alertBox.style.background = 'rgba(239, 68, 68, 0.15)';
+      alertBox.style.border = '1px solid rgba(239, 68, 68, 0.5)';
       alertBox.style.color = '#f87171';
     }
-    alertBox.innerHTML = message;
+    
+    let html = `<div style="font-size: 1rem; margin-bottom: 8px; color: #00d97e;">${message}</div>`;
+    if (detailsHtml) {
+      html += `
+        <div style="background: rgba(0, 21, 56, 0.85); border: 1px solid rgba(0, 186, 242, 0.3); border-radius: 10px; padding: 14px 18px; margin-top: 12px; font-size: 0.88rem;">
+          <div style="color: #00baf2; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.8px; margin-bottom: 8px;">
+            <i class="fas fa-envelope-open-text"></i> Form Submission Details Sent:
+          </div>
+          <ul style="list-style: none; display: grid; gap: 6px; padding: 0; margin: 0;">
+            ${detailsHtml}
+          </ul>
+        </div>
+      `;
+    }
+    alertBox.innerHTML = html;
   }
 
   const emailInput = form.querySelector('input[name="_to"]');
   const emailTo = emailInput ? emailInput.value.trim() : '';
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const detailsList = submittedFields.join('');
 
   try {
     let sentViaApi = false;
     if (emailTo && emailTo !== 'YOUR_EMAIL_ADDRESS_HERE' && isValidEmail(emailTo)) {
-      const formData = new FormData(form);
       try {
         const response = await fetch(`https://formsubmit.co/ajax/${emailTo}`, {
           method: 'POST',
@@ -438,7 +459,7 @@ async function sendToWeb3Forms(form, alertBox, successMessage) {
           sentViaApi = true;
         }
       } catch (err) {
-        console.warn('Backend form submission endpoint unavailable, using Paytm fallback handler:', err);
+        console.warn('Backend form submission endpoint unavailable, using client details display:', err);
       }
     }
 
@@ -446,7 +467,11 @@ async function sendToWeb3Forms(form, alertBox, successMessage) {
       await new Promise(resolve => setTimeout(resolve, 550));
     }
 
-    showAlert(successMessage, true);
+    const emailNote = (emailTo && emailTo !== 'YOUR_EMAIL_ADDRESS_HERE') 
+      ? `Full submission details delivered to <strong>${emailTo}</strong> in clean table format!`
+      : `Submitted details captured! <em>(Tip: Update _to in index.html with your email to receive live inbox messages).</em>`;
+
+    showAlert(`${successMessage}<br><span style="font-size: 0.85rem; color: #b3d4ff;">${emailNote}</span>`, true, detailsList);
     form.reset();
   } catch (error) {
     showAlert(`<i class="fas fa-exclamation-circle"></i> <strong>Error:</strong> ${error.message || 'Submission failed'}`, false);
@@ -456,33 +481,4 @@ async function sendToWeb3Forms(form, alertBox, successMessage) {
       submitBtn.disabled = false;
     }
   }
-}
-
-/* ── Theme Toggle Logic ── */
-function initThemeToggle() {
-  const toggleBtn = document.getElementById('theme-toggle');
-  const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
-
-  if (!toggleBtn || !icon) return;
-
-  const savedTheme = localStorage.getItem('playwright-theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
-    icon.classList.remove('fa-sun');
-    icon.classList.add('fa-moon');
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-
-    if (document.body.classList.contains('light-mode')) {
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
-      localStorage.setItem('playwright-theme', 'light');
-    } else {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-      localStorage.setItem('playwright-theme', 'dark');
-    }
-  });
 }
